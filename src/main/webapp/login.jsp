@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>User Sign in</title>
+<title>Admin Sign in</title>
 
 <!-- Font Icon -->
 <link rel="stylesheet"
@@ -13,8 +13,8 @@
 <!-- Main css -->
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
+<body style="background-color:#AFE1AF;">
+<input type="hidden" id="status" value="<%= request.getAttribute("status") %>"> 
 	<div class="main">
 
 		<!-- Sing in  Form -->
@@ -31,14 +31,14 @@
 					</div>
 		 			-->
 					<div class="signin-form">
-						<h2 class="form-title">Sign in</h2>
-						<form method="" action="" class="register-form"
+						<h2 class="form-title">Learner's Academy Admin Sign in</h2>
+						<form method="post" action="Login" class="register-form"
 							id="login-form">
 							<div class="form-group">
 								<label for="username"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
 									type="text" name="username" id="username"
-									placeholder="Your Name" />
+									placeholder="Admin Email id" />
 							</div>
 							<div class="form-group">
 								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
@@ -55,28 +55,13 @@
 								<input type="submit" name="signin" id="signin"
 									class="form-submit" value="Log in" />
 							</div>
-							
-							<div class="signin-image">
+							 
+							<!-- <div class="signin-image">
 						<a href="registration.jsp" class="signup-image-link">Create an
 							account</a>
-						</div>
+						</div>-->
 							
 						</form>
-						
-						
-						
-						<!-- code to enable sign in with social media apps
-						<div class="social-login">
-							<span class="social-label">Or login with</span>
-							<ul class="socials">
-								<li><a href="#"><i
-										class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-								<li><a href="#"><i
-										class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-								<li><a href="#"><i
-										class="display-flex-center zmdi zmdi-google"></i></a></li>
-							</ul>
-						</div> -->
 					</div>
 				</div>
 			</div>
@@ -87,6 +72,17 @@
 	<!-- JS -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+	
+	<script type = "text/javascript">
+	
+	var status = document.getElementById("status").value;
+	if (status =="failed"){
+		swal("Oops","Wrong user name or password", "error");
+	}
+	
+	</script>
 </body>
 <!--  -->
 </html>
